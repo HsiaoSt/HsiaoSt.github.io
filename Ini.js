@@ -1,7 +1,7 @@
 Physijs.scripts.worker = 'physijs_worker.js';
 Physijs.scripts.ammo = 'ammo.js';    
 
-var scene, renderer, camera, box, box2;
+var scene, renderer, camera, platform, box, box2;
 
 initScene = function() {
     scene = new Physijs.Scene();
@@ -14,6 +14,9 @@ initScene = function() {
     camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 0.1, 1000 );
     camera.position.set(20, 20, 50);
     camera.lookAt(scene.position);
+    
+    platform = new Physijs.BoxMesh(new THREE.CubeGeometry(50, 1, 50), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    scene.add(platform);
     
     box = new Physijs.BoxMesh(new THREE.CubeGeometry(5, 10, 5), new THREE.MeshBasicMaterial({ color:0x00ff00 }));
     box.position.set(0, 10, 0);
