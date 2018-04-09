@@ -1,21 +1,36 @@
 Physijs.scripts.worker = 'physijs_worker.js';
 Physijs.scripts.ammo = 'ammo.js';    
 
-var scene = new Physijs.Scene();
-var camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 0.1, 1000 );
+var scene, renderer, camera, box, box2;
 
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+initScene = function() {
+    scene = new Physijs.Scene();
+    scene.setGravity(new THREE.Vector3(0, -10, 0));
 
-camera.position.x = 20;
-camera.position.y = 20;
-camera.position.z = 50;
+    renderer = new THREE.WebGLRenderer({ antialias:true });
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.getElementById('viewport').appendChild( renderer.domElement );
 
-box = new Physijs.BoxMesh(new THREE.CubeGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ color:0x888888 }));
-scene.add(box);
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    camera.position.set(20, 20, 50);
+    camera.lookAt(scene.position);
+    
+    box = new Physijs.BoxMesh(new THREE.CubeGeometry(5, 10, 5), new THREE.MeshBasicMaterial({ color:0x00ff00 }));
+    box.position.set(0, 10, 0);
+    scene.add(box);
+    
+    box2 = new Physijs.BoxMesh(new THREE.CubeGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ color:0x0000ff }));
+    box2.position.set(0, 20, 0);
+    scene.add(box2);
 
-camera.lookAt(0, 0, 0);
+    requestAnimationFrame( render );
+    scene.simulate();
+}
 
-renderer.render(scene, camera);
-scene.simulate();
+render = function()
+{
+    requestAnimationFrame( render );
+    renderer.render(scene, camera);
+}
+
+window.onload = initScene();
