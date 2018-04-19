@@ -4,7 +4,7 @@ Physijs.scripts.worker = '/js/physijs_worker.js';
 Physijs.scripts.ammo = 'ammo.js';
 
 var ini, render;
-var renderer, scene, camera, loader, axeshelper;
+var renderer, scene, camera, control, loader, axeshelper;
 var sun, sunmodel, moon, moonmodel, surface, earth, icewall, wall;
 var box, radius = 75, theta = 0, mtheta = 0;
 
@@ -28,6 +28,9 @@ function ini()
 //    camera.position.set(0, 300, 0);
     camera.lookAt(scene.position);
     scene.add(camera);
+    
+    control = new THREE.TrackballControls(camera);
+    control.target.set(0, 0, 0);
     
     //onResize
     window.addEventListener('resize', onWindowResize, false);
@@ -72,7 +75,7 @@ function ini()
     earth.receiveShadow = true;
     scene.add(earth);
     
-    icewall = Physijs.createMaterial(new THREE.MeshPhongMaterial({color:0xffffff, roughness:0.6}), 0.5, 0);
+    icewall = Physijs.createMaterial(new THREE.MeshPhongMaterial({color:0xffffff}), 0.5, 0);
     
     wall = new Physijs.ConcaveMesh(new THREE.TorusGeometry(100, 10, 10, 200), icewall, 0);
     wall.position.y = 10;
@@ -128,6 +131,7 @@ function removewall()
 function render()
 {
     revolution();
+    control.update();
     scene.simulate();
     renderer.render( scene, camera );
     requestAnimationFrame( render );
