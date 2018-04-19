@@ -1,0 +1,33 @@
+span
+{
+    position:absolute;
+    color: white;
+}
+
+#wall
+{
+    top:20px;
+    left:20px;
+}
+
+button
+{
+    position:absolute;
+    background-color: #000000;
+    border: 2px solid white;
+    width: 150px;
+    padding: 8px;
+    color: white;
+}
+
+#add
+{
+    top: 40px;
+    left: 20px;
+}
+
+#remove
+{
+    top: 80px;
+    left: 20px;
+}

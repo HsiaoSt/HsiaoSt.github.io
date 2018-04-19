@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Dimensions</title>
+        <title>Flat Earth Representation</title>
         <style>
 			body { margin: 0; }
             
@@ -11,17 +11,23 @@
                 height: 100vh;
                 display: block;
             }
-
 		</style>
+        <link rel=stylesheet type="text/css" href="Design.css"/>
     </head>
     
     <body>
         <div id="viewport"></div>
+        
         <script src="js/three.min.js"></script>
         <script src="js/physi.js"></script>
         <script src="Ini.js"></script>
+        <script src="Structure.js"></script>
         <script>
             window.onload = ini();
         </script>
+        
+        <span id="wall">Wall Controller</span>
+        <button id="add" onclick="addwall()">Add Ice Wall</button>
+        <button id="remove" onclick="removewall()">Remove Ice Wall</button>
     </body>
 </html>
