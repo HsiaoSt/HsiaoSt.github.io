@@ -1,16 +1,27 @@
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Dimensions</title>
         <style>
 			body { margin: 0; }
+            
+            canvas
+            {
+                width: 100vw;
+                height: 100vh;
+                display: block;
+            }
+
 		</style>
     </head>
     
     <body>
         <div id="viewport"></div>
-        <script src="three.min.js"></script>
-        <script src="physi.js"></script>
+        <script src="js/three.min.js"></script>
+        <script src="js/physi.js"></script>
         <script src="Ini.js"></script>
+        <script>
+            window.onload = ini();
+        </script>
     </body>
 </html>
