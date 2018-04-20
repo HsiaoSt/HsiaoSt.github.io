@@ -20,7 +20,7 @@ function ini()
 
     //Scene Constructor
     scene = new Physijs.Scene;
-    scene.setGravity(new THREE.Vector3( 0, -400, 0 ));
+    scene.setGravity(new THREE.Vector3( 0, -100, 0 ));
 
     //Camera Constructor
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
