@@ -22,13 +22,20 @@
         <script src="js/physi.js"></script>
         <script src='js/TrackballControls.js'></script>
         <script src="Ini.js"></script>
+        <script src="Skybox.js"></script>
         <script src="Structure.js"></script>
         <script>
             window.onload = ini();
         </script>
         
+        <span id="camera">Camera Controller</span>
+        <span id="cameraInfo">Move the camera using the mouse</span>
+        <button id="resetCamera" onclick="resetCamera()">Reset Camera Position</button>
+        <button id="topCamera" onclick="topCamera()">Change to top-view</button>
+        
         <span id="wall">Wall Controller</span>
-        <button id="add" onclick="addwall()">Add Ice Wall</button>
-        <button id="remove" onclick="removewall()">Remove Ice Wall</button>
+        <button id="addWall" onclick="addwall()">Add Ice Wall</button>
+        <button id="removeWall" onclick="removewall()">Remove Ice Wall</button>
+        
     </body>
 </html>

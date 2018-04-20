@@ -6,7 +6,7 @@ Physijs.scripts.ammo = 'ammo.js';
 var ini, render;
 var renderer, scene, camera, control, loader, axeshelper;
 var sun, sunmodel, moon, moonmodel, surface, earth, icewall, wall;
-var box, radius = 75, theta = 0, mtheta = 0;
+var box, radius = 75, mradius = 70, theta = 0, mtheta = 0;
 
 //Scene Initialization
 function ini()
@@ -30,7 +30,7 @@ function ini()
     scene.add(camera);
     
     control = new THREE.TrackballControls(camera);
-    control.target.set(0, 0, 0);
+//    control.target.set(0, 0, 0);
     
     //onResize
     window.addEventListener('resize', onWindowResize, false);
@@ -85,6 +85,7 @@ function ini()
     
     // Function Calls
     landmarks();
+    skybox();
     
     requestAnimationFrame( render );
 };
@@ -110,10 +111,22 @@ function revolution()
     
     sunmodel.position.copy(sun.position); 
     
-    moonmodel.position.x = radius * Math.cos(mtheta * Math.PI/180) * -1;
-    moonmodel.position.z = radius * Math.sin(mtheta * Math.PI/180) * -1;
+    moonmodel.position.x = mradius * Math.cos(mtheta * Math.PI/180) * -1;
+    moonmodel.position.z = mradius * Math.sin(mtheta * Math.PI/180) * -1;
     
     mtheta = (mtheta + 0.3) % 360;
+}
+
+// Reset Camera Position and Angle
+function resetCamera()
+{
+    control.reset();
+}
+
+// Change camera to top-view
+function topCamera()
+{
+    camera.position.set(0, 300, 0);
 }
 
 // Add Ice Wall
@@ -122,6 +135,7 @@ function addwall()
     scene.add(wall);
 }
 
+// Remove Ice Wall
 function removewall()
 {
     scene.remove(wall);

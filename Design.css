@@ -4,30 +4,54 @@ span
     color: white;
 }
 
-#wall
-{
-    top:20px;
-    left:20px;
-}
-
 button
 {
     position:absolute;
     background-color: #000000;
     border: 2px solid white;
-    width: 150px;
+    width: 200px;
     padding: 8px;
     color: white;
 }
 
-#add
+#camera
 {
-    top: 40px;
+    top:20px;
+    left:20px;
+}
+
+#cameraInfo
+{
+    top:40px;
+    left:20px;
+}
+
+#resetCamera
+{
+    top:60px;
+    left:20px;
+}
+
+#topCamera
+{
+    top:100px;
+    left:20px;
+}
+
+#wall
+{
+    top:150px;
+    left:20px;
+}
+
+#addWall
+{
+    top: 170px;
     left: 20px;
 }
 
-#remove
+#removeWall
 {
-    top: 80px;
+    top: 210px;
     left: 20px;
 }
