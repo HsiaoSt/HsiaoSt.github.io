@@ -35,15 +35,15 @@ function landmarks()
     
     opera = new Physijs.ConeMesh(new THREE.ConeGeometry(1, 8, 4), white);
     opera.castShadow = true;
-    opera.position.set(40, 20, 35);
+    opera.position.set(40, 14, 35);
     scene.add(opera);
     opera = new Physijs.ConeMesh(new THREE.ConeGeometry(1, 6, 4), white);
     opera.castShadow = true;
-    opera.position.set(42, 20, 35);
+    opera.position.set(42, 14, 35);
     scene.add(opera);
     opera = new Physijs.ConeMesh(new THREE.ConeGeometry(1, 6, 4), white);
     opera.castShadow = true;
-    opera.position.set(38, 20, 35);
+    opera.position.set(38, 14, 35);
     scene.add(opera);
     
     house = new Physijs.BoxMesh(new THREE.BoxGeometry(3, 3, 3), white);

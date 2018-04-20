@@ -55,3 +55,27 @@ button
     top: 210px;
     left: 20px;
 }
+
+#others
+{
+    top:260px;
+    left:20px;
+}
+
+#spawnBox
+{
+    top:280px;
+    left:20px;
+}
+
+#revolveAxis
+{
+    top:320px;
+    left:20px;
+}
+
+#spawnMeteor
+{
+    top:320px;
+    left:20px;
+}

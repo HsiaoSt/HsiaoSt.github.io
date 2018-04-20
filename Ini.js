@@ -5,7 +5,7 @@ Physijs.scripts.ammo = 'ammo.js';
 
 var ini, render;
 var renderer, scene, camera, control, loader, axeshelper;
-var sun, sunmodel, moon, moonmodel, surface, earth, icewall, wall;
+var sun, sunmodel, moon, moonmodel, surface, earth, holder, icewall, wall;
 var box, radius = 75, mradius = 70, theta = 0, mtheta = 0;
 
 //Scene Initialization
@@ -20,10 +20,10 @@ function ini()
 
     //Scene Constructor
     scene = new Physijs.Scene;
-    scene.setGravity(new THREE.Vector3( 0, -30, 0 ));
+    scene.setGravity(new THREE.Vector3( 0, -400, 0 ));
 
     //Camera Constructor
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
     camera.position.set(0, 200, 200);
 //    camera.position.set(0, 300, 0);
     camera.lookAt(scene.position);
@@ -71,9 +71,13 @@ function ini()
     surface = Physijs.createMaterial(new THREE.MeshPhysicalMaterial({roughness:0.6, map:loader.load('img/Earth.jpg')}), 0.5, 0);
     
     //The Earth's Physical Model
-    earth = new Physijs.CylinderMesh(new THREE.CylinderGeometry(100, 75, 20, 64), surface, 0);
+    earth = new Physijs.CylinderMesh(new THREE.CylinderGeometry(100, 75, 20, 64), surface);
     earth.receiveShadow = true;
     scene.add(earth);
+    
+    holder = new Physijs.CylinderMesh(new THREE.CylinderGeometry(15, 15, 3, 64), surface, 0);
+    holder.position.set(0, -12, 0);
+    scene.add(holder);
     
     icewall = Physijs.createMaterial(new THREE.MeshPhongMaterial({color:0xffffff}), 0.5, 0);
     

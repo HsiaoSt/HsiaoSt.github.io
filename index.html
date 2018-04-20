@@ -24,6 +24,8 @@
         <script src="Ini.js"></script>
         <script src="Skybox.js"></script>
         <script src="Structure.js"></script>
+        <script src="MoveBox.js"></script>
+        
         <script>
             window.onload = ini();
         </script>
@@ -36,6 +38,10 @@
         <span id="wall">Wall Controller</span>
         <button id="addWall" onclick="addwall()">Add Ice Wall</button>
         <button id="removeWall" onclick="removewall()">Remove Ice Wall</button>
+        
+        <span id="others">Other Commands</span>
+        <button id="spawnBox" onclick="spawnBox()">Spawn Random Box</button>
+        <button id="spawnMeteor" onclick="spawnMeteor()">Spawn Meteor</button>
         
     </body>
 </html>
