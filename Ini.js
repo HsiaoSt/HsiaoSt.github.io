@@ -39,8 +39,8 @@ function ini()
     loader = new THREE.TextureLoader();
     
     //XYZ Axis Helper
-    axeshelper = new THREE.AxesHelper(500);
-    scene.add(axeshelper);
+//    axeshelper = new THREE.AxesHelper(500);
+//    scene.add(axeshelper);
     
     //Sunlight
     sun = new THREE.PointLight(0xffffff, 1);
